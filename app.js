@@ -1,7 +1,7 @@
 const sectionCenter = document.querySelector(".section-center");
 const btnContainer = document.querySelector(".btn-container");
 
-const single_element = document.getElementById("list");
+const list_element = document.getElementById("list");
 const pagination_element = document.getElementById("pagination");
 
 let current_page = 1;
@@ -13,7 +13,7 @@ const fetchData = () => {
     .then((data) => {
       localStorage.setItem("menu", JSON.stringify(data.menu));
 
-      DisplayList(data.menu, single_element, rows, current_page);
+      DisplayList(data.menu, list_element, rows, current_page);
       SetupPagination(data.menu, pagination_element, rows);
     })
     .catch((err) => {
@@ -22,23 +22,6 @@ const fetchData = () => {
 };
 
 window.onload = fetchData();
-
-document.getElementById("button").addEventListener("click", handleSearch);
-
-function handleSearch() {
-  let search_text = document.getElementById("search-text").value;
-  const menuData = getLocalStorage("menu");
-  if (search_text === "")
-    DisplayList(menuData, single_element, rows, current_page);
-  else {
-    const filtered_data = menuData.filter((data) => {
-      const title = data.title.toLowerCase();
-      if (title.includes(search_text)) return data;
-    });
-    diplayMenuItems(filtered_data);
-  }
-  console.log("clicked searchh butoonnnnnnn");
-}
 
 const getLocalStorage = (key) => {
   let list = localStorage.getItem(key);
@@ -49,6 +32,25 @@ const getLocalStorage = (key) => {
   }
 };
 
+//Searching
+document.getElementById("button").addEventListener("click", handleSearch);
+
+function handleSearch() {
+  let search_text = document.getElementById("search-text").value;
+  const menuData = getLocalStorage("menu");
+  if (search_text === "")
+    DisplayList(menuData, list_element, rows, current_page);
+  else {
+    const filtered_data = menuData.filter((data) => {
+      const title = data.title.toLowerCase();
+      if (title.includes(search_text)) return data;
+    });
+    diplayMenuItems(filtered_data);
+  }
+  // console.log("clicked searchh button");
+}
+
+//displaying items
 function diplayMenuItems(menuItems) {
   let displayMenu = menuItems.map(function (item) {
     // console.log(item);
@@ -69,19 +71,18 @@ function diplayMenuItems(menuItems) {
   });
 
   displayMenu = displayMenu.join("");
-  // console.log(displayMenu);
   sectionCenter.innerHTML = displayMenu;
 }
-var favs_array = [];
 
+//favorites
+var favs_array = [];
 function addFavs(item) {
   console.log("clickeddd");
   // favs_array.push(item);
   // console.log("favs_array", favs_array);
 }
 
-// console.log("dummy dataaa",dummy_data);
-
+//pagination
 function DisplayList(data, wrapper, rows, currentPage) {
   wrapper.innerHTML = "";
   currentPage--;
@@ -95,7 +96,7 @@ function DisplayList(data, wrapper, rows, currentPage) {
     diplayMenuItems(paginatedItems);
   }
 }
-
+//pagination
 function SetupPagination(items, wrapper, rows) {
   wrapper.innerHTML = "";
 
@@ -105,7 +106,7 @@ function SetupPagination(items, wrapper, rows) {
     wrapper.appendChild(btn);
   }
 }
-
+//pagination buttons
 function PaginationButton(page, items) {
   let button = document.createElement("button");
   button.innerText = page;
@@ -114,7 +115,7 @@ function PaginationButton(page, items) {
 
   button.addEventListener("click", function () {
     current_page = page;
-    DisplayList(items, single_element, rows, current_page);
+    DisplayList(items, list_element, rows, current_page);
 
     let current_btn = document.querySelector(".pagenumbers button.active");
     current_btn.classList.remove("active");
