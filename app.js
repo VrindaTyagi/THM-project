@@ -1,4 +1,5 @@
-const menu = [
+// import { dummy_data } from "./data";
+const dummy_data = [
   {
     id: 1,
     title: "buttermilk pancakes",
@@ -80,29 +81,28 @@ const menu = [
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
 ];
-// get parent element
+
 const sectionCenter = document.querySelector(".section-center");
 const btnContainer = document.querySelector(".btn-container");
 // display all items when page loads
-window.addEventListener("DOMContentLoaded", function () {
-  diplayMenuItems(menu);
-  // displayMenuButtons();
-});
+// window.addEventListener("DOMContentLoaded", function () {
+//   diplayMenuItems(menu);
+// });
 
-// FETCH
-// const fetchData = () => {
-//   fetch("https://api.spoonacular.com/food/menuItems/search?apiKey=d26081062c0446868b54439cb9b1ae14&number=10")
-//     .then((res) => res.json())
-//     .then((data) => {
-//         console.log(data);
-//         // diplayMenuItems(data);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
+const fetchData = () => {
+  fetch("https://my-json-server.typicode.com/VrindaTyagi/THM-project")
+    .then((res) => res.json())
+    .then((data) => {
+      // console.log(data);
+      diplayMenuItems(data.menu);
+      // pagination(data.menu);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
-// window.onload = fetchData();
+window.onload = fetchData();
 
 //LOCAL STORAGE
 // const getLocalStorage = () => {
@@ -117,29 +117,91 @@ window.addEventListener("DOMContentLoaded", function () {
 function diplayMenuItems(menuItems) {
   let displayMenu = menuItems.map(function (item) {
     // console.log(item);
-
     return `<article class="menu-item">
-          <img src=${item.img} alt=${item.title} class="photo" />
-          <div class="item-info">
-            <header>
-              <h4>${item.title}</h4>
-              <h4 class="fas fa-heart" style="color: red" onclick=addFav()></h4>
-            </header>
-            <p class="item-text">
-              ${item.desc}
-            </p>
-          </div>
-        </article>`;
+            <img src=${item.img} alt=${item.title} class="photo" />
+             <div class="item-info">
+              <header>
+                <h4>${item.title}</h4>
+                <h4 class="fas fa-heart" style="color: red" onclick=${addFav(item)}></h4>
+              </header>
+              <p class="item-text">
+                ${item.desc}
+              </p>
+              </div>
+            </article>`;
   });
+
+
+
+
   displayMenu = displayMenu.join("");
   // console.log(displayMenu);
-
   sectionCenter.innerHTML = displayMenu;
 }
 var favs_array = [];
 
-function addFav(item){
+function addFav(item) {
   console.log("clickeddd");
   favs_array.push(item);
-  console.log(item);
+  console.log("favs_array", favs_array);
 }
+
+// console.log("dummy dataaa",dummy_data);
+
+const single_element = document.getElementById('list')
+const pagination_element = document.getElementById('pagination')
+
+let current_page=2
+let rows = 5
+
+function DisplayList(dummy_data,wrapper,rows_per_page, page){
+  wrapper.innerHTML = "";
+	page--;
+
+	let start = rows_per_page * page;
+	let end = start + rows_per_page;
+	let paginatedItems = dummy_data.slice(start, end);
+
+	for (let i = 0; i < paginatedItems.length; i++) {
+	// console.log(dummy_data[i], "loginggg");
+  let item = paginatedItems[i].id;
+  let item_element = document.createElement('div');
+  item_element.classList.add('item');
+  item_element.innerText = item;
+
+  wrapper.appendChild(item_element);
+
+	}
+}
+
+function SetupPagination (items, wrapper, rows_per_page) {
+	wrapper.innerHTML = "";
+
+	let page_count = Math.ceil(items.length / rows_per_page);
+	for (let i = 1; i < page_count + 1; i++) {
+		let btn = PaginationButton(i, items);
+		wrapper.appendChild(btn);
+	}
+}
+
+function PaginationButton (page, items) {
+	let button = document.createElement('button');
+	button.innerText = page;
+
+	if (current_page == page) button.classList.add('active');
+
+	button.addEventListener('click', function () {
+		current_page = page;
+		DisplayList(items, single_element, rows, current_page);
+
+		let current_btn = document.querySelector('.pagenumbers button.active');
+		current_btn.classList.remove('active');
+
+		button.classList.add('active');
+	});
+
+	return button;
+}
+
+DisplayList(dummy_data, single_element, rows, current_page);
+SetupPagination(dummy_data, pagination_element, rows);
