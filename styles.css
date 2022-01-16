@@ -217,7 +217,7 @@ Menu
 	outline: none;
 	cursor: pointer;
 
-	background-color: #44AAEE;
+	background-color: rgba(0, 0, 0, 0.2);
 
 	margin: 5px;
 	transition: 0.4s;
@@ -229,11 +229,11 @@ Menu
 }
 
 #pagination button:hover {
-	background-color: #44EEAA;
+	background-color: var(--clr-gold);
 }
 
 #pagination button.active {
-	background-color: #44EEAA;
+	background-color: var(--clr-gold);
 	box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 
