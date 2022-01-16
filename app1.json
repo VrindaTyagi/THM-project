@@ -1,0 +1,84 @@
+{"meals":[
+  {
+    "id": "1",
+    "title": "Buttermilk pancakes",
+    "category": "Breakfast",
+    "price": "₹105.99",
+    "img":"https://user-images.githubusercontent.com/56605853/149457769-698959a3-f942-4fe8-863d-2bacc1b12066.jpeg",
+    "desc":"I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed."
+  },
+  {
+    "id": "2",
+    "title": "Piner double",
+    "category": "Lunch",
+    "price": "₹513.99",
+   "img":"https://user-images.githubusercontent.com/56605853/149457926-ad8e99d5-5767-4a8a-825f-87a19e4504b6.jpeg",
+   "desc":"vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats."
+  },
+  {
+    "id":"3",
+    "title":"Chocolate Caramel Crispy",
+    "category":"Snacks",
+    "price":"₹202.99",
+    "img":"https:\/\/www.themealdb.com\/images\/media\/meals\/1550442508.jpg",
+    "desc":"I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed."
+  },
+  {
+    "id": "4",
+    "title": "Country delight",
+    "category": "Breakfast",
+    "price": "₹230.99",
+    "img":"https://user-images.githubusercontent.com/56605853/149458142-9fa9e2b0-8f30-4f05-a5bd-34b75c1fcac6.jpeg",
+    "desc": "Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut lore ipsum up ."
+  },
+  {
+    "id": "5",
+    "title": "Egg attack",
+    "category": "Breakfast",
+    "price": "₹112.99",
+    "img":"https://user-images.githubusercontent.com/56605853/149458178-803a7ba2-28a1-4bd3-be25-f35674c3eeb2.jpeg",
+    "desc": "franzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's  pop-up."
+  },
+  {
+    "id": "6",
+    "title": "Oreo dream",
+    "category": "Shakes",
+    "price": "₹98.99",
+    "img":"https://user-images.githubusercontent.com/56605853/149458229-8041d3b5-a398-499c-9de6-8ac648f53432.jpeg",
+    "desc": "Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday."
+  },
+  {
+    "id":"7",
+    "title":"Bacon roast",
+    "category":"Breakfast",
+    "price": "₹87.99",
+    "img":"https://user-images.githubusercontent.com/56605853/149458274-d26a5b21-478e-4313-9b9d-991a4b3218a2.jpeg",
+    "desc": "carry jianbing normcore freegan. Viral single-origin coffee live-edge, pork belly cloud bread iceland put a bird ."
+  },
+  {
+    "id": "8",
+    "title": "American classic",
+    "category": "Lunch",
+    "price": "₹192.99",
+    "img": "https://user-images.githubusercontent.com/56605853/149458364-86b7c7a8-d4f2-43e7-8494-87c5d4e6e9b0.jpeg",
+    "desc": "on it tumblr kickstarter thundercats migas everyday carry squid palo santo leggings. Food truck truffaut."
+  },
+  {
+    "id":"9",
+    "title":"Quarantine buddy",
+    "category":"Shakes",
+    "price":"₹166.99",
+    "img":"https://user-images.githubusercontent.com/56605853/149458229-8041d3b5-a398-499c-9de6-8ac648f53432.jpeg",
+    "desc":"skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing."
+  },
+  {
+    "id":"10",
+    "title":"Bison steak",
+    "category":"Dinner",
+    "price":"₹122.99",
+    "img":"https://user-images.githubusercontent.com/56605853/149458451-720d1e8b-a698-45b7-926a-11becfc72856.jpeg",
+    "desc":"skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing."
+  }
+]
+}
+
