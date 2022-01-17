@@ -38,8 +38,9 @@ document.getElementById("button").addEventListener("click", handleSearch);
 function handleSearch() {
   let search_text = document.getElementById("search-text").value;
   const menuData = getLocalStorage("menu");
-  if (search_text === "")
+  if (search_text === ""){
     DisplayList(menuData, list_element, rows, current_page);
+    SetupPagination(menuData, pagination_element, rows);}
   else {
     const filtered_data = menuData.filter((data) => {
       const title = data.title.toLowerCase();
