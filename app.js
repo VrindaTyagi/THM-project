@@ -5,7 +5,7 @@ const list_element = document.getElementById("list");
 const pagination_element = document.getElementById("pagination");
 
 let current_page = 1;
-let rows = 5;
+let rows = 6;
 
 const fetchData = () => {
   fetch("https://my-json-server.typicode.com/VrindaTyagi/THM-project")
@@ -45,7 +45,8 @@ function handleSearch() {
       const title = data.title.toLowerCase();
       if (title.includes(search_text)) return data;
     });
-    diplayMenuItems(filtered_data);
+    DisplayList(filtered_data, list_element, rows, current_page);
+    SetupPagination(filtered_data, pagination_element, rows);
   }
   // console.log("clicked searchh button");
 }
