@@ -1,5 +1,4 @@
 const sectionCenter = document.querySelector(".section-center");
-const btnContainer = document.querySelector(".btn-container");
 
 const list_element = document.getElementById("list");
 const pagination_element = document.getElementById("pagination");
@@ -45,6 +44,7 @@ function handleSearch() {
     const filtered_data = menuData.filter((data) => {
       const title = data.title.toLowerCase();
       if (title.includes(search_text)) return data;
+      // or return (title.includes(search_text))
     });
     DisplayList(filtered_data, list_element, rows, current_page);
     SetupPagination(filtered_data, pagination_element, rows);
